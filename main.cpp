@@ -12,38 +12,38 @@ public:
 class Swimming : public Talent {
 public:
     void show_talent() override {
-        std::cout << "It can swim" << std::endl;
+        cout << "It can swim" << endl;
     }
 };
 
 class Dancing : public Talent {
 public:
     void show_talent() override {
-        std::cout << "It can dance" << std::endl;
+        cout << "It can dance" << endl;
     }
 };
 
 class Counting : public Talent {
 public:
     void show_talent() override {
-        std::cout << "It can count" << std::endl;
+        cout << "It can count" << endl;
     }
 };
 
 class Dog {
 private:
-    std::string name;
-    std::vector<Talent*> talents;
+    string name;
+    vector<Talent*> talents;
 
 public:
-    Dog(const std::string& name) : name(name) {}
+    Dog(const string& name) : name(name) {}
 
     void add_talent(Talent* talent) {
         talents.push_back(talent);
     }
 
     void show_talents() {
-        std::cout << "This is " << name << " and it has some talents:" << std::endl;
+        cout << "This is " << name << " and it has some talents:" << endl;
         for (const auto& talent : talents) {
             talent->show_talent();
         }
