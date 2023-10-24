@@ -3,58 +3,68 @@
 
 using namespace std;
 
-class Weapon
-{
-  public:
-  virtual void shoot() = 0;
-  
+
+class Talent {
+public:
+    virtual void show_talent() = 0;
 };
 
-class Gun : public Weapon
-{  
+class Swimming : public Talent {
 public:
- void shoot() override
-{
-  cout << "bang" << endl;
-}
+    void show_talent() override {
+        cout << "It can swim" << endl;
+    }
 };
 
-class SubmashineGan : public Gun
-{ 
+class Dancing : public Talent {
 public:
- void shoot() override
-{
-  cout << "bang bang" << endl;
-}
+    void show_talent() override {
+        cout << "It can dance" << endl;
+    }
 };
 
-class Bazooka : public Weapon
-{ 
+class Counting : public Talent {
 public:
- void shoot() override
-{
-  cout << "badaboom" << endl;
-}
+    void show_talent() override {
+        cout << "It can count" << endl;
+    }
 };
 
-class Pleer
-{
+class Dog {
+private:
+    string name;
+    vector<Talent*> talents;
+
 public:
- void shoot(Weapon * weapon) 
-{
-  weapon->shoot();
-}
+    
+    Dog(string name)
+    {
+      this->name = name;
+    }
+
+    void add_talent(Talent* talent) {
+        talents.push_back(talent);
+    }
+
+    void show_talents() {
+        cout << "This is " << name << " and it has some talents:" << endl;
+        for (auto talent : talents) {
+            talent->show_talent();
+        }
+    }
 };
 
 int main()
 {
  
-  Pleer pleer;
-  Gun gun;
-  SubmashineGan submashineGan;
-  Bazooka bazooka;
-  pleer.shoot(& bazooka);
-
+    Dog dog1("Steve");
+    Talent * pr = new Counting();
+    dog1.add_talent(new Dancing());
+    dog1.add_talent(new Swimming());
+    //dog1.add_talent(new Counting());
+    dog1.add_talent(pr);
+    dog1.show_talents();
+    
  
    return 0; 
 
