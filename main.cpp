@@ -36,7 +36,11 @@ private:
     vector<Talent*> talents;
 
 public:
-    Dog(const string& name) : name(name) {}
+    
+    Dog(string name)
+    {
+      this->name = name;
+    }
 
     void add_talent(Talent* talent) {
         talents.push_back(talent);
@@ -44,7 +48,7 @@ public:
 
     void show_talents() {
         cout << "This is " << name << " and it has some talents:" << endl;
-        for (const auto& talent : talents) {
+        for (auto talent : talents) {
             talent->show_talent();
         }
     }
